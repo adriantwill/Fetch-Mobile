@@ -91,7 +91,7 @@ extension RecipeRow{
         var uiImage: UIImage?
         func getImage(recipe: Recipe) async {
             do {
-                guard let url = URL(string: recipe.photo_url_large ?? "") else {
+                guard let url = URL(string: recipe.photo_url_small ?? "") else {
                     throw RecipeError.invalidURL
                 }
                 uiImage = try await ImageDownloader().downloadImage(url: url)
